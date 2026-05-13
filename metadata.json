@@ -1,0 +1,6 @@
+{
+  "name": "Loadcell Calibration Pro",
+  "description": "Ứng dụng tính toán hệ số calib cho hệ thống cân 4 loadcell (TSC1/TSC2), lưu trữ lịch sử và tính trung bình.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
