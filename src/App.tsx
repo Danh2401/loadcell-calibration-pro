@@ -374,7 +374,7 @@ diff: Number(
                     placeholder="Nhập giá trị chuẩn..."
                     id="standard_weight"
                   />
-                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#94A3B8] font-bold">KG</span>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#94A3B8] font-bold"></span>
                 </div>
               </section>
 
@@ -563,7 +563,7 @@ diff: Number(
                           </div>
                           <div className="text-right">
                             <p className="text-[10px] font-bold text-[#94A3B8] uppercase">Chuẩn</p>
-                            <p className="font-bold leading-none">{entry.standard} KG</p>
+                            <p className="font-bold leading-none">{entry.standard} </p>
                           </div>
                         </div>
 
