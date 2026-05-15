@@ -104,7 +104,7 @@ function MainApp() {
     const sumLoad = l1 + l2 + l3 + l4;
     const diff = sumLoad - sumEmpty;
     
-    const factor = std > 0 ? diff / std : 0;
+    const factor = diff > 0 ? std / diff : 0;
     
     return {
       sumEmpty,
