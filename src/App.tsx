@@ -164,7 +164,7 @@ diff: Number(
       'LC3 Có tải': h.load.l3,
       'LC4 Có tải': h.load.l4,
       'Tổng có tải': (Number(h.load.l1)||0) + (Number(h.load.l2)||0) + (Number(h.load.l3)||0) + (Number(h.load.l4)||0),
-      'Giá trị chuẩn (KG)': h.standard,
+      'Giá trị chuẩn (TẤN)': h.standard,
       'Hệ số Calib': h.factor
     }));
 
@@ -634,6 +634,36 @@ diff: Number(
 }
 export default function App() {
   const [session, setSession] = useState<any>(null)
+
+  useEffect(() => {
+  let timeout: ReturnType<typeof setTimeout>
+
+  const resetTimer = () => {
+    clearTimeout(timeout)
+
+    timeout = setTimeout(async () => {
+      await supabase.auth.signOut()
+      alert('Phiên đăng nhập đã hết hạn sau 30 phút')
+    }, 30 * 60 * 1000)
+  }
+
+  // Reset timer khi user thao tác
+  window.addEventListener('mousemove', resetTimer)
+  window.addEventListener('keydown', resetTimer)
+  window.addEventListener('click', resetTimer)
+  window.addEventListener('scroll', resetTimer)
+
+  resetTimer()
+
+  return () => {
+    clearTimeout(timeout)
+
+    window.removeEventListener('mousemove', resetTimer)
+    window.removeEventListener('keydown', resetTimer)
+    window.removeEventListener('click', resetTimer)
+    window.removeEventListener('scroll', resetTimer)
+  }
+}, [])
 
   useEffect(() => {
     supabase.auth
